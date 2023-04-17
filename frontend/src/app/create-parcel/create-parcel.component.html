@@ -1,0 +1,58 @@
+<h2>Create Parcel</h2>
+<form [formGroup]="parcelForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Parcel SKU</mat-label>
+      <input matInput formControlName="sku">
+      <mat-error *ngIf="parcelForm.controls['sku'].invalid && (parcelForm.controls['sku'].dirty || parcelForm.controls['sku'].touched)">
+        <span class="validation-message">Please enter a valid parcel SKU.</span>
+      </mat-error>
+      <span *ngIf="skuValidationMessage" class="validation-message">{{ skuValidationMessage }}</span>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Parcel Description</mat-label>
+      <input matInput formControlName="description">
+      <mat-error *ngIf="parcelForm.controls['description'].invalid && (parcelForm.controls['description'].dirty || parcelForm.controls['description'].touched)">
+        Please enter a valid parcel description.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Street Address</mat-label>
+      <input matInput formControlName="streetaddress">
+      <mat-error *ngIf="parcelForm.controls['streetaddress'].invalid && (parcelForm.controls['streetaddress'].dirty || parcelForm.controls['streetaddress'].touched)">
+        Please enter a valid street address.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Town</mat-label>
+      <input matInput formControlName="town">
+      <mat-error *ngIf="parcelForm.controls['town'].invalid && (parcelForm.controls['town'].dirty || parcelForm.controls['town'].touched)">
+        Please enter a valid town.
+      </mat-error>
+    </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Country</mat-label>
+    <mat-select formControlName="countrycode">
+      <mat-option *ngFor="let country of countries$ | async" [value]="country.code">{{ country.name }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="parcelForm.controls['countrycode'].invalid && (parcelForm.controls['countrycode'].dirty || parcelForm.controls['countrycode'].touched)">
+      Please select a valid country.
+    </mat-error>
+  </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>Delivery Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="deliverydate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="parcelForm.controls['deliverydate'].invalid && (parcelForm.controls['deliverydate'].dirty || parcelForm.controls['deliverydate'].touched)">
+        Please enter a valid delivery date.
+      </mat-error>
+    </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!parcelForm.valid" mat-size="large">Create Parcel</button>
+</form>

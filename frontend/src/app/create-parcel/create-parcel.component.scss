@@ -1,0 +1,124 @@
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+form {
+  max-width: 500px;
+  height: 400px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+
+  .mat-form-field {
+    margin-bottom: 16px;
+    width: 100%;
+
+    &:first-child {
+      width: calc(50% - 8px);
+      margin-right: 16px;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5) {
+      width: calc(50% - 8px);
+    }
+  }
+
+  button[type="submit"] {
+    align-self: flex-end;
+    margin-top: auto;
+    font-size: 18px;
+    padding: 12px 24px;
+    border: none;
+    background-color: #007bff;
+    color: #ffffff;
+  }
+
+  button[type="submit"]:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+}
+
+.validation-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.mat-form-field {
+  appearance: fill;
+
+  &.mat-form-field-invalid {
+
+    .mat-form-field-label {
+      color: red;
+    }
+
+    .mat-form-field-underline {
+      background-color: red;
+    }
+
+    .mat-input-element {
+      color: red;
+    }
+  }
+
+  &.mat-focused {
+    .mat-form-field-ripple {
+      background-color: red;
+    }
+
+    .mat-form-field-label {
+      color: red;
+    }
+
+    .mat-form-field-underline {
+      background-color: red;
+    }
+
+    .mat-input-element {
+      color: red;
+    }
+  }
+
+  &.mat-form-field-error {
+    .mat-form-field-ripple {
+      background-color: red;
+    }
+
+    .mat-form-field-label {
+      color: red;
+    }
+
+    .mat-form-field-underline {
+      background-color: red;
+    }
+
+    .mat-input-element {
+      color: red;
+    }
+  }
+
+  &.mat-form-field-disabled {
+    .mat-form-field-label {
+      color: gray;
+    }
+
+    .mat-form-field-underline {
+      background-color: gray;
+    }
+
+    .mat-input-element {
+      color: gray;
+    }
+  }
+}
+

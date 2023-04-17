@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:13.4-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: your_database_username
+      POSTGRES_PASSWORD: your_database_password
+      POSTGRES_DB: shipping
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    restart: always
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: DockerFile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_USER=your_database_username
+      - POSTGRES_PASSWORD=your_database_password
+      - POSTGRES_DB=db
+      - DB_HOST=localhost
+      - DB_PORT=5432
+      - DB_USERNAME=your_database_username
+      - DB_PASSWORD=your_database_password
+      - DB_DATABASE=shipping
+      - NODE_OPTIONS=--trace-warnings
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: DockerFile
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    environment:
+      API_URL: http://backend:3000
+    restart: always
