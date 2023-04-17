@@ -26,6 +26,13 @@ npm run migrate
 
 This will create the necessary tables in the PostgreSQL database with some sample content.
 
+Accessing the App
+Once the app is running, you can access it in your web browser using the following URLs:
+
+Backend API(includes swaggerUI): http://localhost:3000/api
+Angular frontend: http://localhost:4200
+Technologies Used: Angular,NestJS,TypeORM,PostgreSQL, Docker
+
 ## Parcel Schema
 
 The app uses a `Parcel` schema to represent parcels that can be shipped. A sample `Parcel` object is shown below:
@@ -39,10 +46,3 @@ The app uses a `Parcel` schema to represent parcels that can be shipped. A sampl
   "countrycode": "LV",
   "deliverydate": "2023-04-13"
 }
-
-Accessing the App
-Once the app is running, you can access it in your web browser using the following URLs:
-
-Backend API(includes swaggerUI): http://localhost:3000/api
-Angular frontend: http://localhost:4200
-Technologies Used: Angular,NestJS,TypeORM,PostgreSQL, Docker
