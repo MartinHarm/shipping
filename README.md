@@ -30,7 +30,9 @@ Accessing the App
 Once the app is running, you can access it in your web browser using the following URLs:
 
 Backend API(includes swaggerUI): http://localhost:3000/api
+
 Angular frontend: http://localhost:4200
+
 Technologies Used: Angular,NestJS,TypeORM,PostgreSQL, Docker
 
 ## Parcel Schema
