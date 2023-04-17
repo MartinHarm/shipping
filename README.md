@@ -11,7 +11,9 @@ To run the app locally, follow these steps:
 3. Navigate to the root directory of the project.
 4. Run the following command to build and start the app using Docker Compose:
 
-docker-compose up --build
+```bash
+$ docker-compose up --build
+```
 
 This will spin up the NestJS server, Angular frontend, and PostgreSQL database in separate containers.
 
@@ -21,8 +23,10 @@ After the app is running, you need to perform some initial setup:
 
 1. Migrate the database: Run the following command in the `/backend` directory to apply the migrations:
 
-npm run migrate
 
+```bash
+$ npm run migrate
+```
 
 This will create the necessary tables in the PostgreSQL database with some sample content.
 
